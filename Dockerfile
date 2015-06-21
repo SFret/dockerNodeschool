@@ -5,9 +5,13 @@ FROM debian:jessie
 MAINTAINER Stephane Fret <fret.steph@gmail.com>
  
 # Install nodejs
-RUN apt-get update && apt-get install -y curl vim nano emacs
+RUN apt-get update && apt-get install -y curl vim
 RUN curl -sL https://deb.nodesource.com/setup | bash -
 RUN apt-get install -y nodejs build-essential 
+
+# Install git
+RUN apt-get install -y git-core
+RUN adduser git
 
 # add user nds
 RUN adduser --disabled-password --gecos "Nodeschool user" nds
